@@ -18,6 +18,11 @@ float meter(float foots);
 float kph(float knot);
 char* strbin(char* buf, WORD flags);
 
+double lat(DWORD northing);
+double lon(DWORD easting);
+DWORD lowlat(double dlat);
+DWORD lowlon(double dlon);
+
 typedef struct {
 	WORD chan;
 	DWORD count;

@@ -6,6 +6,9 @@
 //  Copyright © 2016. All rights reserved.
 //
 
+static const double POLAR_EARTH_RADIUS = 6356752.3142;
+
+#include <math.h>
 #include "Sl2Utils.h"
 
 const char* freq(BYTE frequency) {
@@ -52,6 +55,37 @@ const char* chan(WORD channel) {
   default:
 			return "Invalid";
 	}
+}
+
+//function y2lat(a) { return 180/Math.PI * (2 * Math.atan(Math.exp(a*Math.PI/180)) - Math.PI/2); }
+//function lat2y(a) { return 180/Math.PI * Math.log(Math.tan(Math.PI/4+a*(Math.PI/180)/2)); }
+
+double lat(DWORD northing) {
+    double temp = (double)northing / POLAR_EARTH_RADIUS;
+    temp = exp(temp);
+    temp = (2 * atan(temp)) - (M_PI / 2);
+    
+    return (temp * (180 / M_PI));
+}
+
+DWORD lowlat(double dlat) {
+	
+	double temp = dlat / (180 / M_PI);
+	temp = log(tan(M_PI/4 + temp * (M_PI / 180) / 2));
+	
+//	temp = (180 / M_PI) * temp;
+	
+	DWORD ll = temp * POLAR_EARTH_RADIUS;
+	return ll;
+}
+
+double lon(DWORD easting) {
+    return ((double)easting / POLAR_EARTH_RADIUS * (180 / M_PI));
+}
+
+DWORD lowlon(double dlon) {
+	double temp = (dlon / (180 / M_PI)) * POLAR_EARTH_RADIUS;
+	return (DWORD)temp;
 }
 
 float meter(float foots) {

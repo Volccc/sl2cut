@@ -23,7 +23,7 @@
 channelStat* stats[MAX_CHAN+1];
 
 // For debug output
-//#define VERBOSE 1
+#define VERBOSE 1
 
 BOOL bInfoOnly;
 DWORD cutStart;
@@ -106,6 +106,16 @@ void proceedBlocks(FILE *fd) {
     filepos = ftell(fd);
 	while (fread(&frameBuf, sizeof(frameBuf), 1, fd) > 0) {
 		proceedFrame(&frameBuf);
+        
+#ifdef VERBOSE
+		double dlat = lat(frameBuf.latitude);
+		double dlon = lon(frameBuf.longitude);
+		DWORD ilat = lowlat(dlat);
+		DWORD ilon = lowlon(dlon);
+
+		printf("Latitude: %f N (%d) Longitude %f E(%d)\n", dlat, ilat, dlon, ilon);
+#endif
+        
 //		printf("upperLimit %f lowerLimit %f waterDepth %f keelDepth %f Speed %f Temp %f\n",
 //			   meter(frameBuf.upperLimit), meter(frameBuf.lowerLimit), meter(frameBuf.waterDepth), frameBuf.keelDepth, kph(frameBuf.speed), frameBuf.temperature);
 //		if (frameBuf.flags != 702) {
@@ -118,6 +128,7 @@ void proceedBlocks(FILE *fd) {
 
         printf("FilePos: %8lu dw0 %7d dw1 %7d dw2 %7d dw3 %7d dw4 %d dw5 %7d dw6 %d\n\n", filepos, frameBuf.dw_0, frameBuf.dw_1, frameBuf.dw_2, frameBuf.dw_3, frameBuf.dw_4, frameBuf.dw_5, frameBuf.dw_6);
 #endif
+        
 		if (frameBuf.packetSize > 10000) {
 			printf("\nsize error!\n");
 		}
