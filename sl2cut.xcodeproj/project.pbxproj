@@ -1,0 +1,257 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F80121101CEB0B2E003D74CD /* Sl2Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = F801210E1CEB0B2E003D74CD /* Sl2Utils.c */; };
+		F86FC85E1CE5CB66008EDC13 /* sl2cut.c in Sources */ = {isa = PBXBuildFile; fileRef = F86FC85D1CE5CB66008EDC13 /* sl2cut.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F86FC8581CE5CB66008EDC13 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F801210E1CEB0B2E003D74CD /* Sl2Utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Sl2Utils.c; sourceTree = "<group>"; };
+		F801210F1CEB0B2E003D74CD /* Sl2Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sl2Utils.h; sourceTree = "<group>"; };
+		F86FC85A1CE5CB66008EDC13 /* sl2cut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sl2cut; sourceTree = BUILT_PRODUCTS_DIR; };
+		F86FC85D1CE5CB66008EDC13 /* sl2cut.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sl2cut.c; sourceTree = "<group>"; };
+		F86FC8641CE5CC02008EDC13 /* bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bool.h; sourceTree = "<group>"; };
+		F86FC8651CE5CCF4008EDC13 /* sl2def.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sl2def.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F86FC8571CE5CB66008EDC13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F86FC8511CE5CB66008EDC13 = {
+			isa = PBXGroup;
+			children = (
+				F86FC85C1CE5CB66008EDC13 /* sl2cut */,
+				F86FC85B1CE5CB66008EDC13 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F86FC85B1CE5CB66008EDC13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F86FC85A1CE5CB66008EDC13 /* sl2cut */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F86FC85C1CE5CB66008EDC13 /* sl2cut */ = {
+			isa = PBXGroup;
+			children = (
+				F86FC8641CE5CC02008EDC13 /* bool.h */,
+				F86FC85D1CE5CB66008EDC13 /* sl2cut.c */,
+				F86FC8651CE5CCF4008EDC13 /* sl2def.h */,
+				F801210E1CEB0B2E003D74CD /* Sl2Utils.c */,
+				F801210F1CEB0B2E003D74CD /* Sl2Utils.h */,
+			);
+			path = sl2cut;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F86FC8591CE5CB66008EDC13 /* sl2cut */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F86FC8611CE5CB66008EDC13 /* Build configuration list for PBXNativeTarget "sl2cut" */;
+			buildPhases = (
+				F86FC8561CE5CB66008EDC13 /* Sources */,
+				F86FC8571CE5CB66008EDC13 /* Frameworks */,
+				F86FC8581CE5CB66008EDC13 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sl2cut;
+			productName = sl2cut;
+			productReference = F86FC85A1CE5CB66008EDC13 /* sl2cut */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F86FC8521CE5CB66008EDC13 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Home;
+				TargetAttributes = {
+					F86FC8591CE5CB66008EDC13 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = F86FC8551CE5CB66008EDC13 /* Build configuration list for PBXProject "sl2cut" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F86FC8511CE5CB66008EDC13;
+			productRefGroup = F86FC85B1CE5CB66008EDC13 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F86FC8591CE5CB66008EDC13 /* sl2cut */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F86FC8561CE5CB66008EDC13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F86FC85E1CE5CB66008EDC13 /* sl2cut.c in Sources */,
+				F80121101CEB0B2E003D74CD /* Sl2Utils.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F86FC85F1CE5CB66008EDC13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F86FC8601CE5CB66008EDC13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F86FC8621CE5CB66008EDC13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F86FC8631CE5CB66008EDC13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F86FC8551CE5CB66008EDC13 /* Build configuration list for PBXProject "sl2cut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F86FC85F1CE5CB66008EDC13 /* Debug */,
+				F86FC8601CE5CB66008EDC13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F86FC8611CE5CB66008EDC13 /* Build configuration list for PBXNativeTarget "sl2cut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F86FC8621CE5CB66008EDC13 /* Debug */,
+				F86FC8631CE5CB66008EDC13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F86FC8521CE5CB66008EDC13 /* Project object */;
+}
