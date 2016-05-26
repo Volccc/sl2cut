@@ -57,7 +57,7 @@ const char* chan(WORD channel) {
 	}
 }
 
-double lat(DWORD northing) {
+double lat(int northing) {
     double temp = (double)northing / POLAR_EARTH_RADIUS;
     temp = exp(temp);
     temp = (2 * atan(temp)) - (M_PI / 2);
@@ -65,26 +65,26 @@ double lat(DWORD northing) {
     return (temp * (180 / M_PI));
 }
 
-DWORD lowlat(double dlat) {
+int lowlat(double dlat) {
 	double temp = log(tan(M_PI / 4 + ((dlat * M_PI) / 180) / 2));
-	DWORD ll = temp * POLAR_EARTH_RADIUS;
+	int ll = temp * POLAR_EARTH_RADIUS;
 	return ll;
 }
 
-double lon(DWORD easting) {
+double lon(int easting) {
     return ((double)easting / POLAR_EARTH_RADIUS * (180 / M_PI));
 }
 
-DWORD lowlon(double dlon) {
+int lowlon(double dlon) {
 	double temp = (dlon / (180 / M_PI)) * POLAR_EARTH_RADIUS;
-	return (DWORD)temp;
+	return (int)temp;
 }
 
-float meter(float foots) {
+double meter(float foots) {
 	return (foots/3.2808399);
 }
 
-float kph(float knot) {
+double kph(float knot) {
 	return (knot * 1.852);
 }
 

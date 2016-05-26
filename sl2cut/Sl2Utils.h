@@ -14,14 +14,14 @@
 
 const char* freq(BYTE frequency);
 const char* chan(WORD channel);
-float meter(float foots);
-float kph(float knot);
+double meter(float foots);
+double kph(float knot);
 char* strbin(char* buf, WORD flags);
 
-double lat(DWORD northing);
-double lon(DWORD easting);
-DWORD lowlat(double dlat);
-DWORD lowlon(double dlon);
+double lat(int northing);
+double lon(int easting);
+int lowlat(double dlat);
+int lowlon(double dlon);
 
 typedef struct {
 	WORD chan;

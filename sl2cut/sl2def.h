@@ -75,8 +75,8 @@ typedef struct {
 	float f5;
 	float speed;		// 100
 	float temperature;	// 104
-	DWORD longitude;
-	DWORD latitude;
+	int longitude;
+	int latitude;
 	float speedWater;
 	float courseOverGround;
 	float altitude;

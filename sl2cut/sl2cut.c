@@ -33,6 +33,11 @@ BOOL bPrimary;
 BOOL bDsi;
 BOOL bSide;
 
+BOOL bHideCoordinates;
+double fakeN = 46.45;
+double fakeE = 6.5;
+
+
 void printStats(channelStat* ptr) {
 	if (ptr == NULL) {
 		return;
@@ -293,9 +298,29 @@ int main(int argc, const char * argv[]) {
 								}
 							}
 							else {
-delerr:
+							delerr:
 								printf("Wrong delete channel argument\n");
 								return EXIT_FAILURE;
+							}
+							break;
+						case 'n':
+							bHideCoordinates = 1;
+							if (argc > i+1) {
+								float nn;
+								if (sscanf(argv[i+1], "%f", &nn) == 1) {
+									fakeN = nn;
+									++i;
+								}
+							}
+							break;
+						case 'e':
+							bHideCoordinates = 1;
+							if (argc > i+1) {
+								float nn;
+								if (sscanf(argv[i+1], "%f", &nn) == 1) {
+									fakeE = nn;
+									++i;
+								}
 							}
 							break;
 						default:
