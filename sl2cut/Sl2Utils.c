@@ -57,9 +57,6 @@ const char* chan(WORD channel) {
 	}
 }
 
-//function y2lat(a) { return 180/Math.PI * (2 * Math.atan(Math.exp(a*Math.PI/180)) - Math.PI/2); }
-//function lat2y(a) { return 180/Math.PI * Math.log(Math.tan(Math.PI/4+a*(Math.PI/180)/2)); }
-
 double lat(DWORD northing) {
     double temp = (double)northing / POLAR_EARTH_RADIUS;
     temp = exp(temp);
@@ -69,12 +66,7 @@ double lat(DWORD northing) {
 }
 
 DWORD lowlat(double dlat) {
-	
-	double temp = dlat / (180 / M_PI);
-	temp = log(tan(M_PI/4 + temp * (M_PI / 180) / 2));
-	
-//	temp = (180 / M_PI) * temp;
-	
+	double temp = log(tan(M_PI / 4 + ((dlat * M_PI) / 180) / 2));
 	DWORD ll = temp * POLAR_EARTH_RADIUS;
 	return ll;
 }
