@@ -23,7 +23,7 @@
 channelStat* stats[MAX_CHAN+1];
 
 // For debug output
-#define VERBOSE 1
+//#define VERBOSE 1
 
 BOOL bInfoOnly;
 DWORD cutStart;
@@ -36,7 +36,8 @@ BOOL bSide;
 BOOL bHideCoordinates;
 double fakeN = 46.45;
 double fakeE = 6.5;
-
+double shiftN = 0;
+double shiftE = 0;
 
 void printStats(channelStat* ptr) {
 	if (ptr == NULL) {
@@ -190,6 +191,16 @@ BOOL proceedCut(FILE* fdin, FILE* fdout) {
 			}
 		}
 		
+		if (bHideCoordinates) {
+			double tempLat = lat(frameBuf.latitude);
+			double tempLon = lon(frameBuf.longitude);
+			if (shiftN == 0) {
+				shiftN = fakeN - tempLat;
+				shiftE = fakeE - tempLon;
+			}
+			frameBuf.latitude = lowlat(tempLat + shiftN);
+			frameBuf.longitude = lowlon(tempLon + shiftE);
+		}
 		filepos = (DWORD)ftell(fdout);
 		shift[frameBuf.channel] = filepos;
 		frameBuf.prevBlockSize = prevSize;
@@ -303,13 +314,16 @@ int main(int argc, const char * argv[]) {
 								return EXIT_FAILURE;
 							}
 							break;
+						case 'a':
+							bHideCoordinates = 1;
+							break;
 						case 'n':
 							bHideCoordinates = 1;
 							if (argc > i+1) {
 								float nn;
+								++i;
 								if (sscanf(argv[i+1], "%f", &nn) == 1) {
 									fakeN = nn;
-									++i;
 								}
 							}
 							break;
@@ -317,9 +331,9 @@ int main(int argc, const char * argv[]) {
 							bHideCoordinates = 1;
 							if (argc > i+1) {
 								float nn;
-								if (sscanf(argv[i+1], "%f", &nn) == 1) {
+								++i;
+								if (sscanf(argv[i], "%f", &nn) == 1) {
 									fakeE = nn;
-									++i;
 								}
 							}
 							break;
