@@ -13,6 +13,10 @@
 #include <string.h>
 #include <ctype.h>
 //#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <utime.h>
 
 #include "bool.h"
 
@@ -257,6 +261,14 @@ BOOL proceed(const char* fname) {
 		}
 		ok = proceedCut(fd, fdout);
 		if (ok) {
+            struct stat statBuf;
+            struct utimbuf utBuf;
+            
+            stat(fname, &statBuf);
+            utBuf.actime = statBuf.st_mtimespec.tv_sec;
+            utBuf.modtime = statBuf.st_mtimespec.tv_sec;
+            utime(fnameout, &utBuf);
+            
 			printf("Output file: %s\n", fnameout);
 		}
 	}
