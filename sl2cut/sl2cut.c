@@ -6,9 +6,8 @@
 //  Copyright © 2016 Home. All rights reserved.
 //
 
-#define _CRT_SECURE_NO_WARNINGS
-
 #ifdef _WIN32
+#define _CRT_SECURE_NO_WARNINGS
 #include <Windows.h>
 #endif // _WIN32
 
@@ -17,6 +16,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <sys/types.h>
+
 #ifndef _WIN32
 #include <utime.h>
 #include <sys/stat.h>
