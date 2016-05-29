@@ -8,6 +8,7 @@
 
 static const double POLAR_EARTH_RADIUS = 6356752.3142;
 
+#define _USE_MATH_DEFINES
 #include <math.h>
 #include "Sl2Utils.h"
 

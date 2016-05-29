@@ -15,8 +15,8 @@
 //#include <time.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <unistd.h>
-#include <utime.h>
+//#include <sys/unistd.h>
+#include <sys/utime.h>
 
 #include "bool.h"
 
@@ -265,10 +265,15 @@ BOOL proceed(const char* fname) {
             struct utimbuf utBuf;
             
             stat(fname, &statBuf);
+#ifdef _WIN32
+			utBuf.actime = statBuf.st_mtime;
+			utBuf.modtime = statBuf.st_mtime;
+#else
             utBuf.actime = statBuf.st_mtimespec.tv_sec;
             utBuf.modtime = statBuf.st_mtimespec.tv_sec;
-            utime(fnameout, &utBuf);
-            
+#endif // WIN32
+			utime(fnameout, &utBuf);
+
 			printf("Output file: %s\n", fnameout);
 		}
 	}
@@ -361,5 +366,5 @@ int main(int argc, const char * argv[]) {
 		}
 	}
 	
-	printf("Usage: sl2cut [-o start:end -d [PDS]] file\n");
+	printf("Usage: sl2cut [-o start:end] [-d [PDS]] [-a] [-n coord] [-e coord] file\n");
 }

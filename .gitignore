@@ -9,3 +9,8 @@ xcuserdata
 DerivedData
 *.xcuserstate
 sl2cut.xcodeproj/project.xcworkspace
+# VS
+Debug/
+Release/
+sl2cut.VC*
+sl2cut/sl2cut.vcxproj.user
