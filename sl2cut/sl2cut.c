@@ -8,11 +8,14 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
+#ifdef _WIN32
+#include <Windows.h>
+#endif // _WIN32
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-//#include <time.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 //#include <sys/unistd.h>
@@ -224,7 +227,7 @@ BOOL proceedCut(FILE* fdin, FILE* fdout) {
 		prevSize = frameBuf.blockSize;
 		fwrite(buf, frameBuf.packetSize, 1, fdout);
 	}
-	fclose(fdout);
+//	fclose(fdout);
 	
 	return ok;
 }
@@ -266,18 +269,21 @@ BOOL proceed(const char* fname) {
             
             stat(fname, &statBuf);
 #ifdef _WIN32
-			utBuf.actime = statBuf.st_mtime;
-			utBuf.modtime = statBuf.st_mtime;
+			FILETIME ftCreate, ftAccess, ftWrite;
+
+			GetFileTime((HANDLE)_get_osfhandle(_fileno(fd)), &ftCreate, &ftAccess, &ftWrite);
+			SetFileTime((HANDLE)_get_osfhandle(_fileno(fdout)), &ftCreate, &ftAccess, &ftWrite);
 #else
             utBuf.actime = statBuf.st_mtimespec.tv_sec;
             utBuf.modtime = statBuf.st_mtimespec.tv_sec;
-#endif // WIN32
 			utime(fnameout, &utBuf);
-
+#endif // WIN32
+			fclose(fd);
+			fclose(fdout);
 			printf("Output file: %s\n", fnameout);
 		}
 	}
-	fclose(fd);
+//	fclose(fd);
 	return ok;
 }
 
