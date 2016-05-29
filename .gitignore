@@ -11,7 +11,10 @@ DerivedData
 sl2cut.xcodeproj/project.xcworkspace
 # VS
 Debug/
-Release/
 sl2cut.VC*
 sl2cut/sl2cut.vcxproj.user
 .vs/
+Release/sl2cut.iobj
+Release/sl2cut.ipdb
+Release/sl2cut.pdb
+sl2cut/Release/
