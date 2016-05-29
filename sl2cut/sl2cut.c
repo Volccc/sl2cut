@@ -18,8 +18,7 @@
 #include <ctype.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-//#include <sys/unistd.h>
-#include <sys/utime.h>
+#include <utime.h>
 
 #include "bool.h"
 
@@ -227,8 +226,6 @@ BOOL proceedCut(FILE* fdin, FILE* fdout) {
 		prevSize = frameBuf.blockSize;
 		fwrite(buf, frameBuf.packetSize, 1, fdout);
 	}
-//	fclose(fdout);
-	
 	return ok;
 }
 
@@ -264,26 +261,27 @@ BOOL proceed(const char* fname) {
 		}
 		ok = proceedCut(fd, fdout);
 		if (ok) {
-            struct stat statBuf;
-            struct utimbuf utBuf;
-            
-            stat(fname, &statBuf);
 #ifdef _WIN32
 			FILETIME ftCreate, ftAccess, ftWrite;
 
 			GetFileTime((HANDLE)_get_osfhandle(_fileno(fd)), &ftCreate, &ftAccess, &ftWrite);
 			SetFileTime((HANDLE)_get_osfhandle(_fileno(fdout)), &ftCreate, &ftAccess, &ftWrite);
+            fclose(fd);
+            fclose(fdout);
 #else
+            struct stat statBuf;
+            struct utimbuf utBuf;
+            
+            fclose(fd);
+            fclose(fdout);
+            stat(fname, &statBuf);
             utBuf.actime = statBuf.st_mtimespec.tv_sec;
             utBuf.modtime = statBuf.st_mtimespec.tv_sec;
 			utime(fnameout, &utBuf);
 #endif // WIN32
-			fclose(fd);
-			fclose(fdout);
 			printf("Output file: %s\n", fnameout);
 		}
 	}
-//	fclose(fd);
 	return ok;
 }
 
