@@ -17,8 +17,10 @@
 #include <string.h>
 #include <ctype.h>
 #include <sys/types.h>
-#include <sys/stat.h>
+#ifndef _WIN32
 #include <utime.h>
+#include <sys/stat.h>
+#endif // _WIN32
 
 #include "bool.h"
 
