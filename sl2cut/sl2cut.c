@@ -3,7 +3,7 @@
 //  sl2cut
 //
 //  Created by Vladimir Borisov on 13/05/16.
-//  Copyright © 2016 Home. All rights reserved.
+//  Copyright © 2016. All rights reserved.
 //
 
 #ifdef _WIN32
@@ -130,12 +130,6 @@ void proceedBlocks(FILE *fd) {
 		printf("Latitude: %f N (%d) Longitude %f E(%d)\n", dlat, ilat, dlon, ilon);
 #endif
         
-//		printf("upperLimit %f lowerLimit %f waterDepth %f keelDepth %f Speed %f Temp %f\n",
-//			   meter(frameBuf.upperLimit), meter(frameBuf.lowerLimit), meter(frameBuf.waterDepth), frameBuf.keelDepth, kph(frameBuf.speed), frameBuf.temperature);
-//		if (frameBuf.flags != 702) {
-//			printf("**** %s ****\n", strbin(bin, frameBuf.flags));
-//		}
-
 #ifdef VERBOSE
 		char bin[17];
 		printf("Chn %d Freq: %s Idx %d blkSz %d prevBlkSz %d packetSz %d flags %s time %d\n", frameBuf.channel, freq(frameBuf.frequency), frameBuf.frameIndex, frameBuf.blockSize, frameBuf.prevBlockSize, frameBuf.packetSize, strbin(bin, frameBuf.flags), frameBuf.time1);
