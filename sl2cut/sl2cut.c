@@ -366,5 +366,5 @@ int main(int argc, const char * argv[]) {
 		}
 	}
 	
-	printf("Usage: sl2cut [-o start:end] [-d [PDS]] [-a] [-n coord] [-e coord] file\n");
+	printf("Usage: sl2cut [-c start:end] [-d [PDS]] [-a] [-n coord] [-e coord] file\n");
 }
