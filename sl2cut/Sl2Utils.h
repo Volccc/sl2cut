@@ -32,6 +32,7 @@ typedef struct {
 	float maxDepth;
 	float minSpeed;
 	float maxSpeed;
+	BYTE freq;
 } channelStat;
 
 #endif /* Sl2Utils_h */

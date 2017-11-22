@@ -51,7 +51,7 @@ void printStats(channelStat* ptr) {
 	if (ptr == NULL) {
 		return;
 	}
-	printf("=== %s: %d sounds", (char*)chan(ptr->chan), ptr->count + 1);
+	printf("=== %s, freq %s: %d sounds", (char*)chan(ptr->chan), (char*)freq(ptr->freq), ptr->count + 1);
 	if (bPrimary && (ptr->chan == 0 || ptr->chan == 1)) {
 		printf(" - be deleted");
 	}
@@ -81,6 +81,7 @@ void proceedFrame(sl2Frame *buf) {
 		ptr->count = buf->frameIndex;
 		ptr->nulCount = 0;
 		ptr->blockSize = buf->blockSize;
+		ptr->freq = buf->frequency;
 	}
 	else {
 		channelStat* ptr = stats[chIndex];
