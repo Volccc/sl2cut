@@ -340,7 +340,7 @@ int main(int argc, const char * argv[]) {
 							if (argc > i+1) {
 								float nn;
 								++i;
-								if (sscanf(argv[i+1], "%f", &nn) == 1) {
+								if (sscanf(argv[i], "%f", &nn) == 1) {
 									fakeN = nn;
 								}
 							}
