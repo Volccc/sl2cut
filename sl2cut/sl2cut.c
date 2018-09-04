@@ -52,6 +52,12 @@ void printStats(channelStat* ptr) {
 		return;
 	}
 	printf("=== %s, freq %s: %d sounds", (char*)chan(ptr->chan), (char*)freq(ptr->freq), ptr->count + 1);
+
+	// Set end to primary chan count if needed
+	//
+	if (!bInfoOnly && cutEnd == 0 && ptr->chan == 0) {
+		cutEnd = ptr->count;
+	}
 	if (bPrimary && (ptr->chan == 0 || ptr->chan == 1)) {
 		printf(" - be deleted");
 	}
