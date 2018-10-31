@@ -38,6 +38,7 @@ DWORD cutStart;
 DWORD cutEnd;
 
 BOOL bPrimary;
+BOOL bSecondary;
 BOOL bDsi;
 BOOL bSide;
 
@@ -58,7 +59,10 @@ void printStats(channelStat* ptr) {
 	if (!bInfoOnly && cutEnd == 0 && ptr->chan == 0) {
 		cutEnd = ptr->count;
 	}
-	if (bPrimary && (ptr->chan == 0 || ptr->chan == 1)) {
+	if (bPrimary && ptr->chan == 0) {
+		printf(" - be deleted");
+	}
+	if (bSecondary && ptr->chan == 1) {
 		printf(" - be deleted");
 	}
 	if (bDsi && (ptr->chan == 2)) {
@@ -185,7 +189,12 @@ BOOL proceedCut(FILE* fdin, FILE* fdout) {
 			continue;
 		}
 		if (bPrimary) {
-			if (frameBuf.channel == 0 || frameBuf.channel == 1) {
+			if (frameBuf.channel == 0) {
+				continue;
+			}
+		}
+		if (bSecondary) {
+			if (frameBuf.channel == 1) {
 				continue;
 			}
 		}
@@ -321,6 +330,9 @@ int main(int argc, const char * argv[]) {
 									if (tolower(delarg[j]) == 'p') {
 										bPrimary = 1;
 									}
+									if (tolower(delarg[j]) == 't') {
+										bSecondary = 1;
+									}
 									else if (tolower(delarg[j]) == 'd') {
 										bDsi = 1;
 									}
@@ -373,5 +385,5 @@ int main(int argc, const char * argv[]) {
 		}
 	}
 	
-	printf("Usage: sl2cut [-c start:end] [-d [PDS]] [-a] [-n coord] [-e coord] file\n");
+	printf("Usage: sl2cut [-c start:end] [-d [PTDS]] [-a] [-n coord] [-e coord] file\n");
 }
